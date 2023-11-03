@@ -755,7 +755,7 @@ double LatController::ComputeFeedForward(double ref_curvature) const {
                                   steer_single_direction_max_degree_ * 100;
   } else {
     steer_angle_feedforwardterm =
-        (wheelbase_*ref_curvature+ kv*ay -
+        (wheelbase_*ref_curvature+ kv*ref_curvature*v^2 -
          matrix_k(0,2)*
              (lr_*ref_curvature -
               lf_/cr_*mass_*v^2*ref_curvature*wheelbase_)) *
